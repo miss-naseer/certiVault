@@ -30,11 +30,11 @@ const Hero = () => {
       </div>
 
       {/* Right Section (Image) */}
-      <div className="md:w-1/2 mt-10 md:mt-0 flex justify-center">
+      <div className=" md:w-1/2 md:mt-0 flex justify-center">
         <img
           src={heroImage}
           alt="CertiVault Hero Illustration"
-          className="w-full max-w-md md:max-w-lg"
+          className="w-full h-auto pt-10 mt-6 object-cover max-w-md md:max-w-lg"
         />
       </div>
     </section>

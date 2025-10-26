@@ -1,8 +1,20 @@
 import React, { useState } from "react";
-
+import { useWallet } from '../context/WalletContext';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { account, connectWallet, disconnectWallet, isConnecting } = useWallet();
+  const navigate = useNavigate();
+
+  const handleWalletClick = async () => {
+    if (account) {
+      disconnectWallet();
+    } else {
+      await connectWallet();
+      navigate('/dashboard');
+    }
+  };
 
   return (
     <nav className="bg-white shadow-md fixed w-full z-50">
@@ -19,8 +31,24 @@ const Navbar = () => {
         </ul>
 
         {/* Button */}
-        <button className="hidden md:block bg-pink-900 text-white px-5 py-2 rounded-full hover:bg-pink-700 transition">
-          Connect Wallet
+        <button 
+          onClick={handleWalletClick}
+          disabled={isConnecting}
+          className={`hidden md:block bg-pink-900 text-white px-5 py-2 rounded-full hover:bg-pink-700 transition
+            ${isConnecting 
+              ? 'bg-pink-900/70 cursor-not-allowed'
+              : account 
+                ? 'bg-pink-700 hover:bg-pink-800'
+                : 'bg-pink-900 hover:bg-pink-800'
+            }`}
+        >
+          {isConnecting ? (
+            'Connecting...'
+          ) : account ? (
+            `${account.slice(0, 6)}...${account.slice(-4)}`
+          ) : (
+            'Connect Wallet'
+          )}
         </button>
 
         {/* Mobile menu toggle */}
@@ -51,8 +79,24 @@ const Navbar = () => {
             <li><a href="#about" className="hover:text-pink-600">About</a></li>
             <li><a href="#features" className="hover:text-pink-600">Features</a></li>
             <li><a href="#contact" className="hover:text-pink-600">Contact</a></li>
-            <button className="bg-pink-900 text-white px-5 py-2 rounded-full hover:bg-pink-700 transition">
-              Connect Wallet
+            <button 
+              onClick={handleWalletClick}
+              disabled={isConnecting}
+              className={`bg-pink-900 text-white px-5 py-2 rounded-full hover:bg-pink-700 transition
+                ${isConnecting 
+                  ? 'bg-pink-900/70 cursor-not-allowed'
+                  : account 
+                    ? 'bg-pink-700 hover:bg-pink-800'
+                    : 'bg-pink-900 hover:bg-pink-800'
+                }`}
+            >
+              {isConnecting ? (
+                'Connecting...'
+              ) : account ? (
+                `${account.slice(0, 6)}...${account.slice(-4)}`
+              ) : (
+                'Connect Wallet'
+              )}
             </button>
           </ul>
         </div>
