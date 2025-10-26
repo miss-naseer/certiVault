@@ -1,7 +1,11 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { getFirestore, doc, getDoc, initializeApp } from 'firebase/firestore';
+import { doc, getDoc} from 'firebase/firestore';
 import { getAuth, signInAnonymously, signInWithCustomToken } from 'firebase/auth';
 import { CheckCircle, XCircle, Loader2, Search } from 'lucide-react';
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+// ... is correct!
+
 
 // --- GLOBAL VARIABLES (Provided by the Canvas environment) ---
 const appId = typeof __app_id !== 'undefined' ? __app_id : 'certivault-default';
