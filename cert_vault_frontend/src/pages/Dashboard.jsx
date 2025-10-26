@@ -6,7 +6,7 @@ const Dashboard = () => {
   const navigate = useNavigate(); // Initialize navigate
 
   return (
-    <div className="flex min-h-screen bg-yellow-50">
+    <div className="flex min-h-screen bg-pink-50">
 
       {/* Main Dashboard Area */}
       <main className="flex-1 p-8">
@@ -89,7 +89,7 @@ const Dashboard = () => {
           <h2 className="text-lg font-semibold mb-4 text-gray-800">
             Recent Activity
           </h2>
-          <div className="bg-white border rounded-xl shadow-sm divide-y">
+          <div className="bg-white border border-gray-400 rounded-xl shadow-sm divide-y">
             {[
               {
                 name: "John Doe",

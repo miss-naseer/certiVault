@@ -7,10 +7,10 @@ const ManageUsers = () => {
 
   return (
     <div className="bg-white p-8 rounded-xl shadow-md">
-      <h1 className="text-2xl font-semibold mb-6">Manage Users</h1>
+      <h1 className="text-3xl font-semibold mb-6 text-pink-900">Manage Users</h1>
       <table className="w-full border-collapse">
         <thead>
-          <tr className="bg-gray-100 text-left">
+          <tr className="bg-pink-100 text-left">
             <th className="p-3 border-b">Name</th>
             <th className="p-3 border-b">Role</th>
             <th className="p-3 border-b">Actions</th>
