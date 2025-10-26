@@ -22,9 +22,6 @@ const ManageUsers = () => {
               <td className="p-3 border-b">{user.name}</td>
               <td className="p-3 border-b">{user.role}</td>
               <td className="p-3 border-b">
-                <button className="text-blue-600 hover:underline mr-4">
-                  Edit
-                </button>
                 <button className="text-red-600 hover:underline">Delete</button>
               </td>
             </tr>
